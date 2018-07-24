@@ -1,4 +1,4 @@
-package Koha::Plugin::Com::ByWaterSolutions::EdifactEnhanced;
+package Koha::Plugin::Com::ByWaterSolutions::EdifactHarrassowitz;
 
 ## It's good practive to use Modern::Perl
 use Modern::Perl;
@@ -22,9 +22,9 @@ our $VERSION = "{VERSION}";
 
 ## Here is our metadata, some keys are required, some are optional
 our $metadata = {
-    name   => 'Edifact - Ingram',
+    name   => 'Edifact - Harrassowitz',
     author => 'Kyle M Hall',
-    description => 'Edifact Enhanced plugin customized for Ingram',
+    description => 'Edifact Enhanced plugin customized for Harrassowitz',
     date_authored   => '2015-12-21',
     date_updated    => '1900-01-01',
     minimum_version => undef,
@@ -54,30 +54,30 @@ sub new {
 sub edifact {
     my ( $self, $args ) = @_;
 
-    require Koha::Plugin::Com::ByWaterSolutions::EdifactEnhanced::Edifact;
+    require Koha::Plugin::Com::ByWaterSolutions::EdifactHarrassowitz::Edifact;
 
-    my $edifact = Koha::Plugin::Com::ByWaterSolutions::EdifactEnhanced::Edifact->new( $args );
+    my $edifact = Koha::Plugin::Com::ByWaterSolutions::EdifactHarrassowitz::Edifact->new( $args );
     return $edifact;
 }
 
 sub edifact_order {
     my ( $self, $args ) = @_;
 
-    require Koha::Plugin::Com::ByWaterSolutions::EdifactEnhanced::Edifact::Order;
+    require Koha::Plugin::Com::ByWaterSolutions::EdifactHarrassowitz::Edifact::Order;
 
     $args->{params}->{plugin} = $self;
-    my $edifact_order = Koha::Plugin::Com::ByWaterSolutions::EdifactEnhanced::Edifact::Order->new( $args->{params} );
+    my $edifact_order = Koha::Plugin::Com::ByWaterSolutions::EdifactHarrassowitz::Edifact::Order->new( $args->{params} );
     return $edifact_order;
 }
 
 sub edifact_transport {
     my ( $self, $args ) = @_;
 
-    require Koha::Plugin::Com::ByWaterSolutions::EdifactEnhanced::Edifact::Transport;
+    require Koha::Plugin::Com::ByWaterSolutions::EdifactHarrassowitz::Edifact::Transport;
 
     $args->{params}->{plugin} = $self;
 
-    my $edifact_transport = Koha::Plugin::Com::ByWaterSolutions::EdifactEnhanced::Edifact::Transport->new( $args->{vendor_edi_account_id}, $self );
+    my $edifact_transport = Koha::Plugin::Com::ByWaterSolutions::EdifactHarrassowitz::Edifact::Transport->new( $args->{vendor_edi_account_id}, $self );
 
     return $edifact_transport;
 }
