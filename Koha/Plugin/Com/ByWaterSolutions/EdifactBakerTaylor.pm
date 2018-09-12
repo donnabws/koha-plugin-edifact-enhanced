@@ -400,7 +400,7 @@ sub configure {
             gir_disable             => $self->retrieve_data('gir_disable'),
             send_basketname         => $self->retrieve_data('send_basketname'),
             send_rff_bfn            => $self->retrieve_data('send_rff_bfn'),
-            split_gir               => $self->retrieve_data('split_gir') // '4',
+            split_gir               => $self->retrieve_data('split_gir') // '20',
             buyer_id_code_qualifier => $self->retrieve_data('buyer_id_code_qualifier'),
             buyer_san_in_header     => $self->retrieve_data('buyer_san_in_header'),
             buyer_san_in_nadby      => $self->retrieve_data('buyer_san_in_nadby'),
